@@ -1,0 +1,206 @@
+/* Decorative overlay for hero */
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.0) 100%);
+}
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Header scroll effect */
+header {
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Image hover effects */
+.img-hover {
+  transition: transform 0.5s ease;
+}
+
+.img-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Button pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.btn-pulse:hover {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Stagger animation delay */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* Smooth transitions for nav links */
+nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7A5C2E;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Animated link for footer and other links */
+.nav-link-animated {
+  position: relative;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: #7A5C2E;
+  transition: width 0.3s ease;
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
+}
+
+/* Logo animation */
+header img {
+  transition: transform 0.3s ease;
+}
+
+header a:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Hero slider content animations */
+.hero-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero-content.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-badge {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+.hero-badge.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.hero-title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s;
+}
+
+.hero-description.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out 0.7s, transform 0.8s ease-out 0.7s;
+}
+
+.hero-button.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero image zoom effect on load */
+.hero-slide img {
+  transform: scale(1.1);
+  transition: transform 1.2s ease-out;
+}
+
+.hero-slide.active img {
+  transform: scale(1);
+}
+

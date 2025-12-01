@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       // Tailwind CDN config (keeps things simple while npm is being fixed)
@@ -38,16 +39,10 @@
         }
       }
     </script>
-    <style>
-      /* Decorative overlay for hero */
-      .hero-overlay {
-        background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.0) 100%);
-      }
-    </style>
   </head>
   <body class="bg-sand text-forest font-sans">
     <!-- Top Nav -->
-    <header class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur border-b border-black/5">
+    <header id="mainHeader" class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur border-b border-black/5">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a class="flex items-center gap-3" href="#">
           <img src="assets/logo.png" alt="Kembara Hills" class="h-10 w-auto">
@@ -84,7 +79,7 @@
         <!-- Slider Container -->
         <div class="hero-slides-container relative h-full w-full">
           <!-- Slide 1 -->
-          <div class="hero-slide absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out opacity-100">
+          <div class="hero-slide active absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out opacity-100">
         <img
           src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop"
           alt="Forest campsite"
@@ -92,19 +87,19 @@
         <div class="absolute inset-0 hero-overlay"></div>
         <div class="relative z-10 h-full flex items-center">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="max-w-2xl">
-              <p class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white ring-1 ring-white/30 backdrop-blur">
+            <div class="max-w-2xl hero-content">
+              <p class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white ring-1 ring-white/30 backdrop-blur hero-badge">
                 <span class="h-1.5 w-1.5 rounded-full bg-brand-light"></span>
                 Korean Aesthetic • Glamping • Nature Escape
               </p>
-              <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-6xl leading-tight">
+              <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-6xl leading-tight hero-title">
                 Harmoni Alam<br>Kenyamanan Estetik
               </h1>
-              <p class="mt-4 text-white/90 text-lg">
+              <p class="mt-4 text-white/90 text-lg hero-description">
                 Pengalaman camping hangat bernuansa Korean aesthetic di Puncak, Bogor.
               </p>
               <div class="mt-8 flex flex-wrap items-center gap-3">
-                    <a href="#book" class="inline-flex items-center rounded-md bg-brand px-5 py-3 text-white hover:bg-brand-dark transition">Pesan Sekarang</a>
+                    <a href="#book" class="inline-flex items-center rounded-md bg-brand px-5 py-3 text-white hover:bg-brand-dark transition btn-pulse hero-button">Pesan Sekarang</a>
                   </div>
                 </div>
               </div>
@@ -119,19 +114,19 @@
             <div class="absolute inset-0 hero-overlay"></div>
             <div class="relative z-10 h-full flex items-center">
               <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="max-w-2xl">
-                  <p class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white ring-1 ring-white/30 backdrop-blur">
+                <div class="max-w-2xl hero-content">
+                  <p class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white ring-1 ring-white/30 backdrop-blur hero-badge">
                     <span class="h-1.5 w-1.5 rounded-full bg-brand-light"></span>
                     City Light View • Sunset • Panorama
                   </p>
-                  <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-6xl leading-tight">
+                  <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-6xl leading-tight hero-title">
                     Malam Tak Terlupakan<br>Di Bawah Bintang
                   </h1>
-                  <p class="mt-4 text-white/90 text-lg">
+                  <p class="mt-4 text-white/90 text-lg hero-description">
                     Nikmati cahaya kota Bogor yang terlihat indah dari kejauhan saat malam tiba.
                   </p>
                   <div class="mt-8 flex flex-wrap items-center gap-3">
-                    <a href="#book" class="inline-flex items-center rounded-md bg-brand px-5 py-3 text-white hover:bg-brand-dark transition">Pesan Sekarang</a>
+                    <a href="#book" class="inline-flex items-center rounded-md bg-brand px-5 py-3 text-white hover:bg-brand-dark transition btn-pulse hero-button">Pesan Sekarang</a>
                   </div>
                 </div>
               </div>
@@ -160,25 +155,25 @@
       <!-- Hero cards -->
       <div class="mx-auto -mt-10 max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="rounded-xl bg-white p-5 shadow-soft">
+          <div class="rounded-xl bg-white p-5 shadow-soft card-hover fade-in stagger-1">
             <p class="text-sm text-forest/60">Pengalaman</p>
             <h3 class="mt-1 font-semibold">Glamping Experience</h3>
-            <img class="mt-3 h-28 w-full rounded-lg object-cover" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?q=80&w=800&auto=format&fit=crop" alt="">
+            <img class="mt-3 h-28 w-full rounded-lg object-cover img-hover" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?q=80&w=800&auto=format&fit=crop" alt="">
           </div>
-          <div class="rounded-xl bg-white p-5 shadow-soft">
+          <div class="rounded-xl bg-white p-5 shadow-soft card-hover fade-in stagger-2">
             <p class="text-sm text-forest/60">Alam</p>
             <h3 class="mt-1 font-semibold">Nature Escape</h3>
-            <img class="mt-3 h-28 w-full rounded-lg object-cover" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" alt="">
+            <img class="mt-3 h-28 w-full rounded-lg object-cover img-hover" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" alt="">
           </div>
-          <div class="rounded-xl bg-white p-5 shadow-soft">
+          <div class="rounded-xl bg-white p-5 shadow-soft card-hover fade-in stagger-3">
             <p class="text-sm text-forest/60">Pemandangan</p>
             <h3 class="mt-1 font-semibold">City Light View</h3>
-            <img class="mt-3 h-28 w-full rounded-lg object-cover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="">
+            <img class="mt-3 h-28 w-full rounded-lg object-cover img-hover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="">
           </div>
-          <div class="rounded-xl bg-white p-5 shadow-soft">
+          <div class="rounded-xl bg-white p-5 shadow-soft card-hover fade-in stagger-4">
             <p class="text-sm text-forest/60">Aktivitas</p>
             <h3 class="mt-1 font-semibold">Campfire Night</h3>
-            <img class="mt-3 h-28 w-full rounded-lg object-cover" src="https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=800&auto=format&fit=crop" alt="">
+            <img class="mt-3 h-28 w-full rounded-lg object-cover img-hover" src="https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=800&auto=format&fit=crop" alt="">
           </div>
         </div>
       </div>
@@ -188,35 +183,35 @@
     <section id="about" class="py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
+          <div class="fade-in-left">
             <h2 class="font-display text-3xl sm:text-4xl">Tentang Kembara Hills</h2>
             <p class="mt-4 text-forest/80">
               <strong>Kembara Hills</strong> adalah destinasi <em>glamping</em> & <em>camping aesthetic</em> bernuansa <strong>Korean-style</strong> yang berlokasi di kawasan sejuk <strong>Megamendung, Puncak - Bogor</strong>. Dari sini, kamu bisa menikmati <strong>pemandangan city light Bogor di malam hari</strong> dan udara pegunungan yang menenangkan, pengalaman sederhana tapi berkesan. Kami percaya bahwa momen terbaik tidak harus mewah, cukup hangat, dekat dengan alam, dan bersama orang-orang terdekat.
             </p>
             <div class="mt-8 grid grid-cols-2 gap-6">
-              <div class="rounded-lg bg-white p-5 shadow-soft">
+              <div class="rounded-lg bg-white p-5 shadow-soft card-hover">
                 <p class="font-semibold">Glamping Experience</p>
                 <p class="text-sm text-forest/70 mt-1">Tenda estetik • Kasur empuk • Pencahayaan hangat</p>
               </div>
-              <div class="rounded-lg bg-white p-5 shadow-soft">
+              <div class="rounded-lg bg-white p-5 shadow-soft card-hover">
                 <p class="font-semibold">City Light View</p>
                 <p class="text-sm text-forest/70 mt-1">Cahaya kota • Pemandangan malam • Suasana romantis</p>
               </div>
-              <div class="rounded-lg bg-white p-5 shadow-soft">
+              <div class="rounded-lg bg-white p-5 shadow-soft card-hover">
                 <p class="font-semibold">Nature Escape</p>
                 <p class="text-sm text-forest/70 mt-1">Udara segar • Panorama hijau • Rehat sejenak</p>
               </div>
-              <div class="rounded-lg bg-white p-5 shadow-soft">
+              <div class="rounded-lg bg-white p-5 shadow-soft card-hover">
                 <p class="font-semibold">Campfire Night</p>
                 <p class="text-sm text-forest/70 mt-1">Api unggun • Obrolan santai • Bintang malam</p>
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-2 gap-4">
-            <img class="h-64 w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=900&auto=format&fit=crop" alt="">
-            <img class="h-64 w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=900&auto=format&fit=crop" alt="">
-            <img class="h-40 w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?q=80&w=900&auto=format&fit=crop" alt="">
-            <img class="h-40 w-full rounded-xl object-cover" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=900&auto=format&fit=crop" alt="">
+          <div class="grid grid-cols-2 gap-4 fade-in-right">
+            <img class="h-64 w-full rounded-xl object-cover img-hover" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=900&auto=format&fit=crop" alt="">
+            <img class="h-64 w-full rounded-xl object-cover img-hover" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=900&auto=format&fit=crop" alt="">
+            <img class="h-40 w-full rounded-xl object-cover img-hover" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?q=80&w=900&auto=format&fit=crop" alt="">
+            <img class="h-40 w-full rounded-xl object-cover img-hover" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=900&auto=format&fit=crop" alt="">
           </div>
         </div>
       </div>
@@ -225,25 +220,25 @@
     <!-- Stays -->
     <section id="stays" class="py-20 bg-white">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl">
+        <div class="max-w-2xl fade-in">
           <h2 class="font-display text-3xl sm:text-4xl">Layanan & Fasilitas</h2>
           <p class="mt-3 text-forest/80">Nikmati pengalaman glamping dengan nuansa Korean aesthetic yang menenangkan dan fotogenik.</p>
         </div>
         <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Card -->
-          <article class="rounded-xl overflow-hidden bg-sand border border-black/5 shadow-soft">
-            <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?q=80&w=1200&auto=format&fit=crop" alt="">
+          <article class="rounded-xl overflow-hidden bg-sand border border-black/5 shadow-soft card-hover fade-in stagger-1">
+            <img class="h-48 w-full object-cover img-hover" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?q=80&w=1200&auto=format&fit=crop" alt="">
             <div class="p-5">
               <h3 class="font-semibold">Paket Camping</h3>
               <p class="mt-1 text-sm text-forest/70">Tidur nyaman di tenda estetik dengan kasur empuk dan pencahayaan hangat</p>
               <div class="mt-4 flex items-center justify-between">
                 <span class="font-semibold text-brand">Lihat Detail</span>
-                <a href="#book" class="rounded-md bg-brand px-3 py-2 text-white text-sm hover:bg-brand-dark">Pesan</a>
+                <a href="#book" class="rounded-md bg-brand px-3 py-2 text-white text-sm hover:bg-brand-dark transition btn-pulse">Pesan</a>
               </div>
             </div>
           </article>
-          <article class="rounded-xl overflow-hidden bg-sand border border-black/5 shadow-soft">
-            <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="">
+          <article class="rounded-xl overflow-hidden bg-sand border border-black/5 shadow-soft card-hover fade-in stagger-2">
+            <img class="h-48 w-full object-cover img-hover" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="">
             <div class="p-5">
               <h3 class="font-semibold">Paket Tracking</h3>
               <p class="mt-1 text-sm text-forest/70">Coming soon • Segera hadir</p>
@@ -253,8 +248,8 @@
               </div>
             </div>
           </article>
-          <article class="rounded-xl overflow-hidden bg-sand border border-black/5 shadow-soft">
-            <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="">
+          <article class="rounded-xl overflow-hidden bg-sand border border-black/5 shadow-soft card-hover fade-in stagger-3">
+            <img class="h-48 w-full object-cover img-hover" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="">
             <div class="p-5">
               <h3 class="font-semibold">Paket BBQ Night</h3>
               <p class="mt-1 text-sm text-forest/70">Coming soon • Hangatkan malam dengan BBQ dan api unggun</p>
@@ -272,7 +267,7 @@
     <section id="amenities" class="py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="rounded-xl bg-white p-8 shadow-soft">
+          <div class="rounded-xl bg-white p-8 shadow-soft card-hover fade-in stagger-1">
             <h3 class="font-semibold flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 21h18M3 10l9-7 9 7M9 22V12h6v10"/>
@@ -286,7 +281,7 @@
               <li>Tanpa kehilangan kenyamanan</li>
             </ul>
           </div>
-          <div class="rounded-xl bg-white p-8 shadow-soft">
+          <div class="rounded-xl bg-white p-8 shadow-soft card-hover fade-in stagger-2">
             <h3 class="font-semibold flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -301,7 +296,7 @@
               <li>Momen berkesan bersama orang terdekat</li>
             </ul>
           </div>
-          <div class="rounded-xl bg-white p-8 shadow-soft">
+          <div class="rounded-xl bg-white p-8 shadow-soft card-hover fade-in stagger-3">
             <h3 class="font-semibold flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 7 0 5.5-4.78 10-10 10z"/>
@@ -316,7 +311,7 @@
               <li>Menyegarkan pikiran</li>
             </ul>
           </div>
-          <div class="rounded-xl bg-white p-8 shadow-soft">
+          <div class="rounded-xl bg-white p-8 shadow-soft card-hover fade-in stagger-4">
             <h3 class="font-semibold flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
@@ -337,7 +332,7 @@
     <!-- Pricing -->
     <section id="pricing" class="py-20 bg-white">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl">
+        <div class="max-w-2xl fade-in">
           <h2 class="font-display text-3xl sm:text-4xl">Paket Harga</h2>
           <p class="mt-3 text-forest/80">Pilih paket yang sesuai dengan kebutuhan Anda.</p>
         </div>
@@ -367,28 +362,28 @@
     <section id="location" class="py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between gap-6">
-          <div>
+          <div class="fade-in">
             <h2 class="font-display text-3xl sm:text-4xl">Cocok Untuk</h2>
             <p class="mt-3 text-forest/80 max-w-xl">Pengalaman yang tepat untuk berbagai momen spesial Anda.</p>
           </div>
         </div>
         <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <article class="rounded-xl overflow-hidden bg-white border border-black/5 shadow-soft">
-            <img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="">
+          <article class="rounded-xl overflow-hidden bg-white border border-black/5 shadow-soft card-hover fade-in stagger-1">
+            <img class="h-44 w-full object-cover img-hover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="">
             <div class="p-5">
               <h3 class="font-semibold">Healing & Short Escape</h3>
               <p class="mt-1 text-sm text-forest/70">Tempat sempurna untuk rehat sejenak dan menyegarkan pikiran.</p>
             </div>
           </article>
-          <article class="rounded-xl overflow-hidden bg-white border border-black/5 shadow-soft">
-            <img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="">
+          <article class="rounded-xl overflow-hidden bg-white border border-black/5 shadow-soft card-hover fade-in stagger-2">
+            <img class="h-44 w-full object-cover img-hover" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="">
             <div class="p-5">
               <h3 class="font-semibold">Quality Time Bersama Keluarga</h3>
               <p class="mt-1 text-sm text-forest/70">Momen hangat dan berkesan bersama orang-orang terdekat.</p>
             </div>
           </article>
-          <article class="rounded-xl overflow-hidden bg-white border border-black/5 shadow-soft">
-            <img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop" alt="">
+          <article class="rounded-xl overflow-hidden bg-white border border-black/5 shadow-soft card-hover fade-in stagger-3">
+            <img class="h-44 w-full object-cover img-hover" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop" alt="">
             <div class="p-5">
               <h3 class="font-semibold">Aktivitas Santai atau Konten Estetik</h3>
               <p class="mt-1 text-sm text-forest/70">Suasana yang menenangkan dan fotogenik untuk konten Anda.</p>
@@ -418,15 +413,15 @@
           <div>
             <p class="font-semibold">Contact</p>
             <ul class="mt-3 space-y-2 text-sm text-forest/80">
-              <li>Instagram: @kembarahills</li>
-              <li>TikTok: kembarahills</li>
-              <li>Website: kembarahills.com</li>
+              <li>Instagram: <a href="https://instagram.com/kembarahills" target="_blank" rel="noopener noreferrer" class="nav-link-animated hover:text-brand">@kembarahills</a></li>
+              <li>TikTok: <a href="https://tiktok.com/@kembarahills" target="_blank" rel="noopener noreferrer" class="nav-link-animated hover:text-brand">kembarahills</a></li>
+              <li>Website: <a href="https://kembarahills.com" target="_blank" rel="noopener noreferrer" class="nav-link-animated hover:text-brand">kembarahills.com</a></li>
               <li class="mt-3">Jalan Curug Panjang, RT.3/RW.5, Desa : Megamendung, Kampung Citamiang<br>Megamendung, Kab. Bogor, Jawa Barat, ID, 16770</li>
             </ul>
           </div>
           <div>
             <p class="font-semibold">Book Your Stay</p>
-            <a id="book" href="#" class="mt-3 inline-block rounded-md bg-brand px-4 py-2 text-white hover:bg-brand-dark">Hubungi Kami</a>
+            <a id="book" href="#" class="mt-3 inline-block rounded-md bg-brand px-4 py-2 text-white hover:bg-brand-dark transition btn-pulse">Hubungi Kami</a>
           </div>
         </div>
         <div class="mt-10 text-xs text-forest/60">&copy; <span id="year"></span> Kembara Hills. All rights reserved.</div>
@@ -435,6 +430,42 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Header scroll effect
+      const header = document.getElementById('mainHeader');
+      let lastScroll = 0;
+      
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+          header?.classList.add('scrolled');
+        } else {
+          header?.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+      });
+      
+      // Scroll animations using Intersection Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all elements with fade-in classes
+      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+        observer.observe(el);
+      });
+      
       // Mobile menu toggle
       const btn = document.getElementById('mobileMenuBtn');
       const menu = document.getElementById('mobileMenu');
@@ -468,16 +499,47 @@
         let currentSlide = 0;
         let autoPlayInterval;
 
+        function animateHeroContent(slide) {
+          // Reset animations first
+          const content = slide.querySelector('.hero-content');
+          const badge = slide.querySelector('.hero-badge');
+          const title = slide.querySelector('.hero-title');
+          const description = slide.querySelector('.hero-description');
+          const button = slide.querySelector('.hero-button');
+          
+          // Remove animate class to reset
+          if (content) content.classList.remove('animate');
+          if (badge) badge.classList.remove('animate');
+          if (title) title.classList.remove('animate');
+          if (description) description.classList.remove('animate');
+          if (button) button.classList.remove('animate');
+          
+          // Force reflow to ensure reset is applied
+          if (content) void content.offsetHeight;
+          
+          // Trigger animations after a small delay to allow reset
+          setTimeout(() => {
+            if (content) content.classList.add('animate');
+            if (badge) badge.classList.add('animate');
+            if (title) title.classList.add('animate');
+            if (description) description.classList.add('animate');
+            if (button) button.classList.add('animate');
+          }, 100);
+        }
+
         function showSlide(index) {
           // Hide all slides
           slides.forEach((slide, i) => {
-            slide.classList.remove('opacity-100');
+            slide.classList.remove('opacity-100', 'active');
             slide.classList.add('opacity-0');
           });
           
           // Show current slide
           slides[index].classList.remove('opacity-0');
-          slides[index].classList.add('opacity-100');
+          slides[index].classList.add('opacity-100', 'active');
+          
+          // Animate hero content
+          animateHeroContent(slides[index]);
           
           // Update indicators
           indicators.forEach((indicator, i) => {
@@ -533,9 +595,25 @@
           slider.addEventListener('mouseleave', startAutoPlay);
         }
 
-        // Initialize
-        showSlide(0);
-        startAutoPlay();
+        // Initialize - animate on page load
+        function initHeroSlider() {
+          showSlide(0);
+          startAutoPlay();
+        }
+        
+        // Trigger animation when page loads
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+              initHeroSlider();
+            }, 100);
+          });
+        } else {
+          // DOM already loaded
+          setTimeout(() => {
+            initHeroSlider();
+          }, 100);
+        }
       })();
     </script>
   </body>
