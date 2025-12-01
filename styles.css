@@ -3,6 +3,16 @@
   background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.0) 100%);
 }
 
+/* Hero section spacing */
+section[aria-label="Hero Section"] {
+  margin-bottom: 0;
+}
+
+/* Consistent section spacing */
+section {
+  position: relative;
+}
+
 /* Scroll animations */
 .fade-in {
   opacity: 0;
@@ -202,5 +212,261 @@ header a:hover img {
 
 .hero-slide.active img {
   transform: scale(1);
+}
+
+/* Why Choose Kembara Hills Section */
+.why-choose-slider {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-choose-slider:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.why-slide {
+  transition: opacity 0.8s ease-in-out;
+}
+
+.why-slide img {
+  transition: transform 0.8s ease-in-out;
+}
+
+.why-choose-slider:hover .why-slide img {
+  transform: scale(1.05);
+}
+
+.why-dot {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.why-dot:hover {
+  transform: scale(1.2);
+}
+
+.value-point {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.value-point:hover {
+  background-color: rgba(122, 92, 46, 0.05);
+  transform: translateX(4px);
+}
+
+.value-point.active {
+  background-color: rgba(122, 92, 46, 0.1);
+  border-left: 3px solid #7A5C2E;
+  padding-left: 1.25rem;
+}
+
+/* Responsive adjustments for Why Choose section */
+@media (max-width: 1024px) {
+  .why-choose-slider {
+    height: 500px;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-choose-slider {
+    height: 400px;
+  }
+  
+  .value-point {
+    padding: 0.75rem;
+  }
+  
+  .value-point h3 {
+    font-size: 1.125rem;
+  }
+  
+  .value-point p {
+    font-size: 0.875rem;
+  }
+}
+
+/* About Section - Minimalist Design */
+#about {
+  position: relative;
+}
+
+#about h2 {
+  letter-spacing: -0.02em;
+}
+
+#about .absolute {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Responsive adjustments for About section */
+@media (max-width: 768px) {
+  #about h2.absolute {
+    font-size: 4rem !important;
+  }
+  
+  #about h2#about-heading {
+    font-size: 2rem !important;
+  }
+  
+  #about p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Facilities Section */
+.facility-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.facility-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(122, 92, 46, 0.2);
+}
+
+/* Responsive adjustments for Facilities section */
+@media (max-width: 1024px) {
+  #amenities .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  #amenities .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #amenities h2 {
+    font-size: 2rem !important;
+  }
+  
+  .facility-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Experience Section */
+.experience-card {
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+}
+
+.experience-card img {
+  transition: transform 0.5s ease;
+}
+
+/* Responsive adjustments for Experience section */
+@media (max-width: 1024px) {
+  section .rounded-3xl {
+    padding: 1.5rem !important;
+  }
+  
+  section .grid.lg\\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  section .grid.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  section .rounded-3xl {
+    padding: 1rem !important;
+  }
+}
+
+/* FAQ Section */
+.faq-item {
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+  cursor: pointer;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  transition: all 0.3s ease;
+}
+
+.faq-answer:not(.hidden) {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for FAQ section */
+@media (max-width: 640px) {
+  .faq-question {
+    padding: 1rem;
+  }
+  
+  .faq-question span {
+    font-size: 1rem;
+  }
+  
+  .faq-answer {
+    padding: 1rem;
+    padding-top: 0;
+  }
+}
+
+/* Pricing & Booking Section */
+.package-card {
+  transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-4px);
+}
+
+.package-card img {
+  transition: transform 0.5s ease;
+}
+
+/* Responsive adjustments for Pricing section */
+@media (max-width: 1024px) {
+  #pricing .grid.lg\\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  #pricing .package-card {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #pricing h2 {
+    font-size: 2.5rem !important;
+  }
+  
+  .package-card h3 {
+    font-size: 1.75rem !important;
+  }
 }
 

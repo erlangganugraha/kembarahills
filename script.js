@@ -187,3 +187,230 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }
 })();
 
+// Why Choose Kembara Hills Slider
+(function() {
+  const slider = document.querySelector('.why-choose-slider');
+  if (!slider) return;
+  
+  const slides = slider.querySelectorAll('.why-slide');
+  const dots = slider.querySelectorAll('.why-dot');
+  const valuePoints = document.querySelectorAll('.value-point');
+  let currentSlide = 0;
+  let autoPlayInterval;
+  
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach((slide, i) => {
+      slide.classList.remove('opacity-100');
+      slide.classList.add('opacity-0');
+    });
+    
+    // Show current slide
+    slides[index].classList.remove('opacity-0');
+    slides[index].classList.add('opacity-100');
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.remove('bg-white/50', 'w-2');
+        dot.classList.add('bg-white', 'w-8');
+      } else {
+        dot.classList.remove('bg-white', 'w-8');
+        dot.classList.add('bg-white/50', 'w-2');
+      }
+    });
+    
+    // Highlight corresponding value point
+    valuePoints.forEach((point, i) => {
+      if (i === index) {
+        point.classList.add('active');
+        point.style.opacity = '1';
+        point.style.transform = 'translateX(8px)';
+      } else {
+        point.classList.remove('active');
+        point.style.opacity = '0.7';
+        point.style.transform = 'translateX(0)';
+      }
+    });
+  }
+  
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+  
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+  }
+  
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+  
+  // Click on dots to go to specific slide
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      stopAutoPlay();
+      currentSlide = index;
+      showSlide(currentSlide);
+      startAutoPlay();
+    });
+  });
+  
+  // Click on value points to go to corresponding slide
+  valuePoints.forEach((point, index) => {
+    point.addEventListener('click', () => {
+      stopAutoPlay();
+      currentSlide = index;
+      showSlide(currentSlide);
+      startAutoPlay();
+    });
+    
+    point.style.cursor = 'pointer';
+    point.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  });
+  
+  // Pause on hover
+  slider.addEventListener('mouseenter', stopAutoPlay);
+  slider.addEventListener('mouseleave', startAutoPlay);
+  
+  // Initialize
+  showSlide(0);
+  startAutoPlay();
+})();
+
+// FAQ Accordion
+(function() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const faqItem = question.closest('.faq-item');
+      const answer = faqItem.querySelector('.faq-answer');
+      const icon = question.querySelector('.faq-icon');
+      const isExpanded = question.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other FAQ items
+      faqQuestions.forEach(q => {
+        if (q !== question) {
+          const item = q.closest('.faq-item');
+          const ans = item.querySelector('.faq-answer');
+          const ic = q.querySelector('.faq-icon');
+          ans.classList.add('hidden');
+          q.setAttribute('aria-expanded', 'false');
+          ic.classList.remove('rotate-180');
+        }
+      });
+      
+      // Toggle current item
+      if (isExpanded) {
+        answer.classList.add('hidden');
+        question.setAttribute('aria-expanded', 'false');
+        icon.classList.remove('rotate-180');
+      } else {
+        answer.classList.remove('hidden');
+        question.setAttribute('aria-expanded', 'true');
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+})();
+
+// Pricing Slider
+(function() {
+  const slides = document.querySelectorAll('.pricing-slide');
+  const dots = document.querySelectorAll('.pricing-dot');
+  const prevBtn = document.getElementById('pricingPrevBtn');
+  const nextBtn = document.getElementById('pricingNextBtn');
+  let currentSlide = 0;
+  let autoPlayInterval;
+
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach((slide, i) => {
+      slide.classList.remove('opacity-100', 'active');
+      slide.classList.add('opacity-0');
+    });
+    
+    // Show current slide
+    slides[index].classList.remove('opacity-0');
+    slides[index].classList.add('opacity-100', 'active');
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.remove('bg-white/40');
+        dot.classList.add('bg-white/80');
+      } else {
+        dot.classList.remove('bg-white/80');
+        dot.classList.add('bg-white/40');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+  }
+
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+
+  // Event listeners
+  if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoPlay(); prevSlide(); startAutoPlay(); });
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopAutoPlay();
+      goToSlide(index);
+      startAutoPlay();
+    });
+  });
+
+  // Pause on hover
+  const slider = document.getElementById('pricingSlider');
+  if (slider) {
+    slider.addEventListener('mouseenter', stopAutoPlay);
+    slider.addEventListener('mouseleave', startAutoPlay);
+  }
+
+  // Initialize
+  function initPricingSlider() {
+    if (slides.length > 0) {
+      showSlide(0);
+      startAutoPlay();
+    }
+  }
+  
+  // Trigger when page loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        initPricingSlider();
+      }, 100);
+    });
+  } else {
+    setTimeout(() => {
+      initPricingSlider();
+    }, 100);
+  }
+})();
+
+
