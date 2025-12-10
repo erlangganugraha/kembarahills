@@ -21,3 +21,5 @@ global.IntersectionObserver = class IntersectionObserver {
 // Mock window.scrollTo
 global.window.scrollTo = () => {};
 
+
+

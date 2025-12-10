@@ -139,13 +139,9 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Logo animation */
+/* Logo - no animation */
 header img {
-  transition: transform 0.3s ease;
-}
-
-header a:hover img {
-  transform: scale(1.1) rotate(5deg);
+  /* No animation on logo */
 }
 
 /* Hero slider content animations */
